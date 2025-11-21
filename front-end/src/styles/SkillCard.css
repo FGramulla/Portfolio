@@ -38,15 +38,15 @@
   margin-bottom: 10px;
   transition: color 0.3s ease;
 }
-/* Usamos el color primario o el color de acento para el icono */
 
-/* Mejorar el color del ícono al hacer hover para resaltar */
-.skill-card:hover .skill-icon {
-  color: var(--primary-color);
+.skill-card:hover{
+  border: 1px solid var(--primary-color);
 }
 
+/* Mejorar el color del ícono al hacer hover para resaltar */
+.skill-card:hover .skill-icon,
 .skill-card:hover .skill-name {
-  color: white;
+  color: var(--primary-color);
 }
 
 .skill-name {

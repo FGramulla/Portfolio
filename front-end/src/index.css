@@ -18,7 +18,7 @@
   --text-color: #e0e7ff;
     --bg-light-hover: #374151; /* Fondo de hover suave (ej: gray-700) */
   --light-shadow: 0 4px 10px -1px rgba(60, 193, 250, 0.651);
-  --border-color: #374151; /* Color de borde (ej: gray-700) */
+  --border-color: #40a4c4; /* Color de borde (ej: gray-700) */
 }
 
 * {
@@ -33,7 +33,16 @@ html, body {
   overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa al menos toda la altura de la ventana */
+}
 
+.content-area {
+    flex-grow: 1; /* Esto obliga a MAIN a estirarse y consumir el espacio restante */
+    /* Aquí se define el margen de 5rem (ml-20) para dejar espacio al sidebar */
+}
 ::-webkit-scrollbar {
     width: 10px; /* Ancho de la barra vertical */
     height: 10px; /* Alto de la barra horizontal (si aplica) */
