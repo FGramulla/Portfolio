@@ -1,0 +1,57 @@
+/* src/styles/SkillCard.css */
+
+/* Estilos para el enlace contenedor (elimina el estilo predeterminado del link) */
+.skill-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilos de la tarjeta individual (el div dentro del enlace) */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  /* Usamos el fondo de la página para la tarjeta (blanco o oscuro) */
+  background-color: var(--page-bg);
+  border-radius: 12px;
+  /* Sombra suave predeterminada */
+  box-shadow: var(--light-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  min-height: 120px;
+  border: 1px solid rgba(var(--text-color), 0.1); /* Borde sutil */
+}
+
+/* Efecto hover MEJORADO */
+.skill-card:hover {
+  transform: translateY(-5px); /* Pequeño levantamiento */
+  /* Usamos la sombra oscura para un mejor impacto */
+  box-shadow: var(--dark-shadow);
+  /* Opcional: Un pequeño cambio de fondo al hacer hover */
+  background-color: var(--bg-light-hover);
+}
+
+.skill-icon {
+  color: var(--indigo-text);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+/* Usamos el color primario o el color de acento para el icono */
+
+/* Mejorar el color del ícono al hacer hover para resaltar */
+.skill-card:hover .skill-icon {
+  color: var(--primary-color);
+}
+
+.skill-card:hover .skill-name {
+  color: white;
+}
+
+.skill-name {
+  /* Usamos el color de texto para el nombre */
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
+}

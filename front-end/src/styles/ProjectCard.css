@@ -1,0 +1,102 @@
+/* --- Estilos para la Tarjeta de Proyecto (Componente principal) --- */
+.project-card {
+    background-color: var(--page-bg); 
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--light-shadow); 
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); 
+}
+
+/* ... (Estilos h3 y p se mantienen) ... */
+
+/* --- Estilos para el Carrusel de Imágenes (Contenedor) --- */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    /* Necesitas que el contenedor tenga una altura definida
+       para que la imagen no colapse durante la transición. */
+    height: 250px; 
+}
+
+.project-image {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover; 
+    display: block;
+    
+    /* ------------------------------------------------ */
+    /* --- CAMBIOS PARA LA ANIMACIÓN (TRANSICIÓN) --- */
+    /* ------------------------------------------------ */
+    
+    /* Agrega la transición de opacidad */
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+/* NOTA: 
+   En React, la animación se maneja automáticamente porque el componente 
+   se re-renderiza con una nueva URL de imagen. La propiedad 'transition' 
+   asegura que el cambio de una imagen a la otra se vea suave.
+   
+   Si necesitaras una animación más compleja (como el deslizamiento o stack), 
+   tendrías que usar librerías como 'react-transition-group' o manejar 
+   múltiples elementos de imagen en el DOM simultáneamente, pero la transición 
+   de opacidad simple es la solución más limpia con tu código actual.
+*/
+
+/* --- Botones de Navegación del Carrusel (Se mantienen) --- */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(45, 111, 138, 0.7); 
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%; 
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* --- Puntos de Indicación del Carrusel (Se mantienen) --- */
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--primary-color); 
+}

@@ -1,0 +1,119 @@
+/* --- Estilos para la Vista de Detalle (sin cambios relevantes aquí, se mantiene) --- */
+.project-detail-container {
+    min-height: 100vh;
+    padding: 80px 40px;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+}
+
+.detail-content {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; 
+}
+
+/* --- Lado Izquierdo: Carrusel de Imagen (sin cambios) --- */
+.detail-carousel-wrapper {
+    flex: 2; 
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--dark-shadow); 
+}
+
+.detail-image {
+    width: 100%;
+    height: auto;
+    max-height: 550px; 
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.detail-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    z-index: 15;
+}
+
+/* --- Lado Derecho: Información (texto y título sin cambios) --- */
+.detail-info {
+    flex: 1; 
+    padding-top: 20px;
+    text-align: left;
+}
+
+.detail-title {
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* --- Estilos del Botón "Ir a la Página Web" Mejorado --- */
+.detail-link-btn.primary-btn-full-width {
+    display: inline-block; /* Para permitir ancho y margin vertical */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px; /* Espacio superior */
+    padding: 15px 30px; /* Padding generoso */
+    font-size: 1.15em;
+    font-weight: 600;
+    border-radius: 10px; /* Bordes más redondeados */
+    background-color: var(--primary-color); /* Color principal */
+    color: var(--page-bg); /* Texto claro */
+    box-shadow: var(--light-shadow); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Transición para animación de hover */
+    /* Animación de brillo (opcional, pero agrega un toque extra) */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.detail-link-btn.primary-btn-full-width:hover {
+    background-color: var(--secondary-color); /* Color secundario al hover */
+    box-shadow: var(--dark-shadow); /* Sombra más fuerte */
+    transform: translateY(-5px) scale(1.02); /* Ligeramente más grande y elevado */
+    cursor: pointer;
+}
+
+/* Animación de brillo (un pseudo-elemento que se desliza) */
+.detail-link-btn.primary-btn-full-width::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15); /* Brillo blanco */
+    transition: all 0.4s ease-in-out;
+    transform: skewX(-20deg); /* Inclinación del brillo */
+}
+
+.detail-link-btn.primary-btn-full-width:hover::after {
+    left: 100%; /* Desliza el brillo de izquierda a derecha */
+}
+
+
+/* --- Media Queries (Adaptación a móviles) --- */
+@media (max-width: 900px) {
+    .detail-content {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+
+    .detail-carousel-wrapper,
+    .detail-info {
+        flex: auto;
+        width: 100%;
+    }
+}

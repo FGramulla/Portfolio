@@ -1,0 +1,55 @@
+:root {
+  --page-bg: #eee;
+  --button-bg: var(--primary-color);
+  --primary-color: #40a4c4;
+  --secondary-color: #2d6f8a;
+  --text-color: #1a1a1a;
+  --light-shadow: 0 4px 6px -1px rgba(0, 191, 255, 0.793),
+    0 2px 4px -2px rgba(64, 164, 196, 0.1);
+  --indigo-accent: #4f46e5; /* Color de acento principal (ej: indigo-600) */
+  --indigo-text: #818cf8; /* Color de acento para texto/íconos (ej: indigo-400) */
+  --border-color: #40a4c4; /* Color de borde (ej: gray-700) */
+}
+[data-theme="dark"] {
+  --page-bg: #141d2e;
+  --button-bg: var(--primary-color);
+  --primary-color: #5bc0eb;
+  --secondary-color: #387fb2;
+  --text-color: #e0e7ff;
+    --bg-light-hover: #374151; /* Fondo de hover suave (ej: gray-700) */
+  --light-shadow: 0 4px 10px -1px rgba(60, 193, 250, 0.651);
+  --border-color: #374151; /* Color de borde (ej: gray-700) */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: color 0.5s ease;
+}
+html, body {
+  background-color: var(--page-bg);
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra vertical */
+    height: 10px; /* Alto de la barra horizontal (si aplica) */
+}
+
+
+/* 3. Define el estilo del 'pulgar' (thumb - el control de arrastre) */
+::-webkit-scrollbar-thumb {
+    /* Usamos el color primario de tu tema para el pulgar */
+    background-color: var(--primary-color);
+    border-radius: 20px; /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+}
+
+/* 4. Estilo al pasar el ratón sobre el pulgar (hover) */
+::-webkit-scrollbar-thumb:hover {
+    /* Usa un color secundario o de acento más oscuro o brillante para el hover */
+    background-color: var(--secondary-color);
+}

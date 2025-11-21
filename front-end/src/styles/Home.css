@@ -1,0 +1,195 @@
+h1,
+h2,
+h3 {
+  font-weight: 700; /* Títulos en Poppins Bold */
+  color: var(--text-color); /* Hereda para adaptarse al tema */
+}
+
+/* --- Estilos de Secciones --- */
+
+/* Content-1: Bienvenida (Pantalla completa) */
+.content-1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Content-2 y Content-3: Habilidades y Proyectos (Alturas mínimas) */
+.content-2,
+.content-3 {
+  min-height: 80vh; /* Para asegurar que sean secciones grandes */
+  padding: 80px 40px;
+  text-align: center;
+}
+
+/* --- Animación de Mensaje de Bienvenida --- */
+.welcome-message {
+  border: 1px solid var(--primary-color);
+  border-radius: 5%;
+  padding: 100px;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  max-width: 800px;
+  box-shadow: var(--light-shadow);
+}
+
+/* Estado: OCULTO (cuando no es visible) */
+.welcome-message.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Estado: VISIBLE (cuando es visible) */
+.welcome-message.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.welcome-message h1 {
+  font-size: clamp(2.5em, 5vw, 4em); /* Fuente responsiva */
+  color: var(--primary-color);
+  margin-bottom: 0.2em;
+}
+
+.welcome-message p {
+  font-size: clamp(1em, 2vw, 1.2em);
+  color: var(--text-color);
+}
+
+/* --- Estilos para el Título de Sección --- */
+.content-2 h2,
+.content-3 h2 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* --- Contenedor de Habilidades (Content-2) --- */
+.skills-section {
+  padding: 60px 20px;
+  text-align: center;
+  /* Usamos el color de fondo de la página */
+  background-color: var(--page-bg);
+}
+
+/* Contenedor principal de la cuadrícula de habilidades */
+.skills-grid {
+  display: grid;
+  /* Por defecto: 4 columnas en desktop */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+/* --- Estilos de la Cuadrícula de Proyectos (Content-3) --- */
+.projects-grid {
+  display: grid;
+  /* Por defecto: Auto-fit con mínimo de 320px (lo que resulta en 3 o 4 columnas en desktop) */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================================================= */
+/* MEDIAS QUERIES                                 */
+/* ========================================================================= */
+
+/* --- 1. Tabletas y Laptops Pequeñas (Max 1024px) --- */
+@media (max-width: 1024px) {
+  /* Habilidades: Pasar a 3 columnas */
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  /* Proyectos: Ajustar el minmax, sigue siendo flexible pero enfocado a 2 columnas */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  /* Títulos de Sección */
+  .content-2 h2,
+  .content-3 h2 {
+    font-size: 2.5em;
+  }
+}
+
+/* --- 2. Móviles (Max 768px) --- */
+@media (max-width: 768px) {
+  /* Padding general de secciones */
+  .content-2,
+  .content-3 {
+    padding: 60px 20px;
+    min-height: auto; /* Permite que las secciones se ajusten al contenido */
+  }
+
+  /* Welcome Message */
+  .welcome-message {
+    padding: 60px 30px; /* Reducir padding */
+    border-radius: 10px;
+    max-width: 90%;
+  }
+
+  .welcome-message h1 {
+    font-size: clamp(2em, 8vw, 3em);
+  }
+
+  .welcome-message p {
+    font-size: clamp(0.9em, 3vw, 1.1em);
+  }
+
+  /* Títulos de Sección */
+  .content-2 h2,
+  .content-3 h2 {
+    font-size: 2em;
+    margin-bottom: 0.8em;
+  }
+
+  /* Habilidades: Pasar a 2 columnas */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  /* Proyectos: Forzar 1 columna (o permitir el ajuste flexible) */
+  .projects-grid {
+    /* Mantenemos auto-fit pero reducimos el minmax para que se centre mejor si es 1 columna */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+}
+
+/* --- 3. Móviles Pequeños (Max 480px) --- */
+@media (max-width: 480px) {
+  /* Welcome Message */
+  .welcome-message {
+    padding: 40px 15px; /* Reducir aún más el padding */
+    border-radius: 8px;
+  }
+  
+  .welcome-message h1 {
+    font-size: 1.8em;
+  }
+  
+  /* Habilidades: Pasar a 1 columna (Full width) */
+  .skills-grid {
+    grid-template-columns: 1fr; 
+    gap: 15px;
+  }
+  
+  /* Proyectos: Asegurar que el minmax sea estrecho */
+  .projects-grid {
+    grid-template-columns: 1fr; /* Forzar una columna para mejor legibilidad */
+    gap: 15px;
+  }
+}
