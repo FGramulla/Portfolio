@@ -7,7 +7,7 @@ function AboutMe() {
   const [isOpened, setIsOpened] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
-  const cvLink = "https://drive.google.com/uc?export=download&id=1e_kWkG58gop_DEwvmjFF7jtQwOPw7CRi"; 
+  const cvLink = "https://drive.google.com/file/d/1FXPJxPBY9UNZT8xlOxigltXIDlqesHaC/view?usp=sharing"; 
 
   const handleOpenEnvelope = () => {
     if (!isOpened) {
