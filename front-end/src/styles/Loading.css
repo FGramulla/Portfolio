@@ -1,0 +1,97 @@
+/* Contenedor principal usa el fondo de tu página */
+.loading-screen-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--page-bg); 
+  z-index: 9999;
+  transition: background-color 0.3s ease;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+}
+
+/* Icono usa tu color primario y tu sombra personalizada */
+.react-icon-animated {
+  font-size: 4.5rem;
+  color: var(--primary-color);
+  filter: drop-shadow(var(--light-shadow));
+  animation: react-spin 3s linear infinite;
+  z-index: 2;
+}
+
+/* El anillo usa el color secundario para contraste */
+.ring {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: 3px solid transparent;
+  border-top: 3px solid var(--secondary-color);
+  border-bottom: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: ring-spin 1.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* El texto usa tu color de texto principal */
+.loading-status-text {
+  margin-top: 35px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  animation: pulse-text 1.8s ease-in-out infinite;
+}
+
+/* ANIMACIONES */
+
+@keyframes react-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ring-spin {
+  0% { 
+    transform: rotate(0deg) scale(1); 
+    border-top-color: var(--secondary-color);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.15); 
+    border-top-color: var(--indigo-accent); /* Un toque de acento en el giro */
+  }
+  100% { 
+    transform: rotate(360deg) scale(1); 
+    border-top-color: var(--secondary-color);
+  }
+}
+
+@keyframes pulse-text {
+  0%, 100% { 
+    opacity: 0.5; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05);
+    color: var(--primary-color); /* El texto brilla con el color primario */
+  }
+}
